@@ -1,4 +1,4 @@
-﻿class Socket {
+﻿export class Socket {
   constructor(url) {
     this.url = url;
     this.listeners = {};
@@ -85,7 +85,7 @@
   events = {
     open: async () => {
       if (!await this.load()) return;
-      console.log('[DEBUG] Socket opened');
+      console.log('[DEBUG] Socket opened')
       this.clear();
       this.connected = true;
       this.started = true;
@@ -94,7 +94,7 @@
     },
     close: (e) => {
       this.fire('close');
-      console.log('[DEBUG] Socket closed', e);
+      console.log('[DEBUG] Socket closed', e)
       this.authed = false;
       this.clear();
       this.connected = false;
@@ -136,4 +136,4 @@
   }
 }
 
-export { Socket };
+export const socket = new Socket('wss://rosco.hutils.com/wss');

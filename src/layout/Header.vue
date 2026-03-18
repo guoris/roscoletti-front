@@ -3,7 +3,6 @@
   <header v-else>
     <div class="bar">
       <RouterLink to="/" class="logo">
-        <img src="/full_logo.png" alt="">
       </RouterLink>
       <nav>
         <RouterLink v-for="item of permissionsNav" :aria-label="item.title" :key="item.to" :to="item.to">

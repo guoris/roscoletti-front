@@ -6,10 +6,11 @@ import './assets/style.less';
 import App from './App.vue';
 
 const manager = new RouteManager()
-  .add('/').file('Home').title('Home').icon('FullTicket').description('Home.').config({ onHeader: false }).unauth()
+  .add('/FGMIEUYWNLBRUHINGPTIFRDNGTKRLCWAIHDLNNTGYGPTWWQWOPMRDKPVHMKNAPBXJPPSRRDPHRWQAWASCSDNDWZWQYDQFQYLFQLBGHJSTRYSCMLDKHHZOZGIUOQFBSNQMKLTHYZZBFDHAARPCLBYGNNNXMBPVNJRHHLNTCNKEQUPYUIVBHSLHRIBQVMFBVBSTOWOFRXY').file('Overlay').title('El Rosco').icon('FullTicket').description('Home.').config({ onHeader: false }).unauth()
   .add('/terms-of-service').file('Terms').icon('Chip').title('Terms').description('Terms.').config({ onHeader: false }).unauth()
   .add('/privacy-policy').file('PrivacyPolicy').icon('Chip').title('Privacy Policy').description('Terms.').config({ onHeader: false }).unauth()
   .add('*').file('Redirect').config({ offHeader: true })
+  
   .wrap();
 
 const router = createRouter({

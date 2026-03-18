@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { env } from './state';
+import { env } from "./state";
 
 export const token = ref("");
 
@@ -43,15 +43,16 @@ class Fetch {
     return this.exec();
   }
 
-  auth() {
+  auth(t) {
     this.options.headers = this.options.headers || {};
-    this.options.headers["Authorization"] = `Bearer ${token.value}`;
+    this.options.headers['Authorization'] = `${t || token.value}`;
     return this;
   }
 
   exec() {
+    const url = this.url.startsWith('http') ? this.url : `${env.api}${this.url}`;
     return new Promise((r) =>
-      fetch(`${env.api}${this.url}`, this.options)
+      fetch(url, this.options)
         .then(async (rawResponse) => {
           const response = await rawResponse.json();
           if (rawResponse.ok) {
@@ -65,8 +66,18 @@ class Fetch {
   }
 }
 
-const makeFilters = (filters) => (filters?.size ? `&search=${JSON.stringify([...filters].reduce((a, [k, v]) => ({ ...a, [k]: v }), {}))}` : "");
-const makeSort = (sort) => (sort?.size ? [...sort].reduce((a, [k, v], i, arr) => (a += `${v == -1 ? "-" : ""}${k}${i + 1 !== arr.length ? "," : ""}`), "&sort=") : "");
+const makeFilters = (filters) =>
+  filters?.size
+    ? `&search=${JSON.stringify([...filters].reduce((a, [k, v]) => ({ ...a, [k]: v }), {}))}`
+    : "";
+const makeSort = (sort) =>
+  sort?.size
+    ? [...sort].reduce(
+        (a, [k, v], i, arr) =>
+          (a += `${v == -1 ? "-" : ""}${k}${i + 1 !== arr.length ? "," : ""}`),
+        "&sort=",
+      )
+    : "";
 
 // User Endpoints
 export const getMe = () => new Fetch(`/user/me`).auth().get();
@@ -76,3 +87,8 @@ export const updateMe = (data) => new Fetch(`/user/me`).auth().patch(data);
 export const loginUser = (data) => new Fetch(`/user/login`).post(data);
 
 export const registerUser = (data) => new Fetch(`/user/register`).post(data);
+
+// Rosco Endpoints
+export const getRosco   = () => new Fetch('https://rosco.hutils.com/rosco').auth('dcaceacfb97252ce09e13b07845dbc43').get();
+export const showRosco  = () => new Fetch('https://rosco.hutils.com/rosco').auth('dcaceacfb97252ce09e13b07845dbc43').patch({ shown: true });
+export const hideRosco  = () => new Fetch('https://rosco.hutils.com/rosco').auth('dcaceacfb97252ce09e13b07845dbc43').patch({ shown: false });

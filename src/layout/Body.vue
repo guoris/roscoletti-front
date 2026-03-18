@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <Header />
+    <!-- <Header /> -->
     <!--     <Transition name="fade-out">
       <Loader v-if="waitForMe.initial || waitForMe.force" />
     </Transition> -->
@@ -69,7 +69,7 @@ import Footer from './Footer.vue';
   flex-direction: column;
   overflow: hidden;
   top: 0;
-  gap: 20px;
+  // gap: 20px;
   min-height: 100vh;
   position: relative;
   color: var(--header-text-color);

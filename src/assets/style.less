@@ -20,6 +20,13 @@ p {
   position: relative;
 }
 
+@font-face {
+  font-family: Roboto;
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+
 button,
 input {
   font-family: inherit;
@@ -54,6 +61,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   background: #000000;
+  font-family: Roboto, sans-serif;
 }
 
 .wrapper {
@@ -73,7 +81,7 @@ body {
     gap: 20px;
 
     &:not(.mobile) {
-      padding: 80px 0px;
+      // padding: 80px 0px;
     }
 
     &.fade {

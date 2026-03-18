@@ -23,7 +23,7 @@ router.beforeEach(async g => {
   dim.value = false;
   const found = routes.get(g.path);
   if (found) {
-    document.title = `${found.title} | Baux`;
+    document.title = `${found.title} | Mernosketti`;
   }
 });
 </script>
