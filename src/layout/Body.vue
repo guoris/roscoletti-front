@@ -93,7 +93,7 @@ import Footer from './Footer.vue';
     align-items: center;
     min-height: 100vh;
     transition: .3s opacity;
-    background-image: url('/img/bg.png');
+    // background-image: url('/img/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 

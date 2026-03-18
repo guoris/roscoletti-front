@@ -202,20 +202,19 @@ socket.connect();
 .rosco-page {
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 30%, #0d2050 0%, #070e1c 70%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: url('/img/mernosketti.png') no-repeat center;
-        pointer-events: none;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     inset: 0;
+    //     background: url('/img/mernosketti.png') no-repeat center;
+    //     pointer-events: none;
+    // }
 }
 
 .overlay-content {
