@@ -1,0 +1,9 @@
+﻿# robots.txt for https://baux.ar
+# Allow all crawlers full access but point them to the sitemap
+User-agent: *
+Allow: /
+
+Sitemap: https://baux.ar/sitemap.xml
+
+# Optional: crawl-delay for polite scraping (seconds)
+# Crawl-delay: 10
